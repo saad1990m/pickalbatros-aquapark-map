@@ -1,0 +1,1 @@
+Interactive map v10 assets complete and ready for server-side WebP assembly.

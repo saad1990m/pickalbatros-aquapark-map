@@ -8,11 +8,11 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</title>
-<link rel="stylesheet" href="style.css?v=10">
-<style>.map-title{display:none!important}@media(max-width:680px){.hotspot{width:30px;height:30px;border-width:2px;font-size:12px}.map-viewport{min-height:440px}}</style>
+<link rel="stylesheet" href="style.css?v=11">
+<style>.map-title{display:none!important}@media(max-width:680px){.map-viewport{min-height:440px}}</style>
 </head>
 <body>
-<header class="hero"><div><h1>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</h1><p>اضغط على أي رقم في الخريطة لتظهر معلومات المرفق مباشرة.</p><p style="margin-top:6px;font-weight:800">الإصدار التفاعلي 10 — ملف صورة حقيقي</p></div></header>
+<header class="hero"><div><h1>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</h1><p>اختر بين أرقام المرافق وحروف مناطق الغرف، ثم اضغط على العلامة لعرض التفاصيل.</p><p style="margin-top:6px;font-weight:800">الإصدار التفاعلي 11 — دون تكرار وبحروف غرف تفاعلية</p></div></header>
 <div class="tabs-wrap"><nav class="tabs">
 <button class="tab active" data-view="mapView">الخريطة التفاعلية</button>
 <button class="tab" data-view="facilitiesView">دليل المرافق</button>
@@ -21,24 +21,24 @@
 </nav></div>
 <main>
 <section id="mapView" class="view active">
-<div class="stats"><div class="card stat"><b>46</b><span>مرفقًا موضحًا</span></div><div class="card stat"><b>25</b><span>مسبحًا</span></div><div class="card stat"><b>7</b><span>مطاعم معلنة</span></div><div class="card stat"><b>8</b><span>بارات معلنة</span></div></div>
-<div id="mapNotice" class="notice"><b>الخريطة محفوظة كصورة مستقلة.</b> اضغط على الرقم 22 مثلًا لعرض معلومات النادي الصحي وصالة الرياضة.</div>
+<div class="stats"><div class="card stat"><b>46</b><span>مرفقًا موضحًا</span></div><div class="card stat"><b>20</b><span>منطقة غرف بالحروف</span></div><div class="card stat"><b>7</b><span>مطاعم معلنة</span></div><div class="card stat"><b>8</b><span>بارات معلنة</span></div></div>
+<div id="mapNotice" class="notice"><b>الأرقام للمرافق، والحروف لمناطق الغرف.</b> إذا تكرر المرفق في المخطط الأصلي، تظهر هنا علامة واحدة فقط مع بيان عدد المواقع داخل الوصف.</div>
 <div class="map-layout">
 <div class="card map-card">
 <div class="map-toolbar">
 <button class="tool primary" id="aquaBtn">منطقة أكوا بارك</button><button class="tool" id="neverBtn">منطقة نيفرلاند</button><button class="tool" id="fullBtn">الخريطة كاملة</button>
 <button class="tool" id="zoomIn">تكبير +</button><button class="tool" id="zoomOut">تصغير −</button><button class="tool" id="resetBtn">إعادة التوسيط</button><div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=10" alt="خريطة عربية لمنتجع بيكالباتروس أكوا بارك شرم الشيخ"></div></div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=11" alt="خريطة عربية لمنتجع بيكالباتروس أكوا بارك شرم الشيخ"></div></div>
 </div>
-<aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اضغط على رقم في الخريطة</h2><p>عند الضغط على الرقم تظهر معلومات المرفق مباشرة: الاسم والوصف ومدى مناسبته للعائلة وأوقات التشغيل.</p><div class="notice">يمكنك أيضًا البحث برقم المرفق أو اسمه من «دليل المرافق».</div></aside>
+<aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اختر نوع العلامات</h2><p>«أرقام المرافق» تعرض كل مرفق مرة واحدة، و«حروف الغرف» تعرض مباني الغرف ونطاق أرقامها.</p></aside>
 </div>
 </section>
 <section id="facilitiesView" class="view"><h2>دليل المرافق</h2><input id="search" class="search" type="search" placeholder="ابحث برقم المرفق أو اسمه: 22، مسبح، مطعم، عيادة..."><div id="filters" class="filters"></div><div id="facilityGrid" class="grid"></div></section>
 <section id="eventsView" class="view"><h2>الفعاليات وأوقات التشغيل</h2><div class="notice">الأوقات الخضراء منشورة رسميًا، بينما بقية المواعيد تحتاج إلى تأكيد من الاستقبال.</div><div id="eventGrid" class="events"></div></section>
-<section id="roomView" class="view"><div class="room"><div class="card box"><span class="pill">التوصية الأولى</span><h2>الدور الأرضي في منطقة غرف 7xxx</h2><p>أفضل توازن بين القرب من الألعاب والمسابح وبين الهدوء النسبي. اطلب غرفة عائلية مطلة على مسبح، في منتصف المبنى، وليست مواجهة مباشرة للزحاليق الكبيرة أو منصة العروض.</p><div class="rank"><strong>1</strong><div><b>منطقة غرف 7xxx</b><br>الأفضل للعائلة والقرب المتوازن من الخدمات.</div></div><div class="rank"><strong>2</strong><div><b>منطقة غرف 6xxx</b><br>أقرب لبعض الألعاب، لكنها أكثر حركة وضوضاء.</div></div></div><div class="card box"><h3>طلب جاهز للفندق</h3><div id="roomText" class="copybox">نرجو تخصيص غرفة عائلية في الدور الأرضي، مطلة على مسبح، ويفضل في منطقة الغرف التي تبدأ بالرقم 7 وفي منتصف المبنى، بحيث تكون قريبة من أكوا بارك الأطفال والمسابح والمطاعم والمرافق الرئيسية، ولكن ليست مواجهة مباشرة للزحاليق الكبيرة أو مناطق العروض لتجنب الضوضاء. وفي حال عدم التوفر، تكون الأولوية الثانية لمنطقة الغرف التي تبدأ بالرقم 6 في الدور الأرضي. كما نرجو أن تكون الغرف متجاورة إذا كان الحجز يشمل أكثر من غرفة.</div><button class="copy-btn" data-copy="roomText">نسخ طلب الغرفة</button></div></div></section>
+<section id="roomView" class="view"><div class="room"><div class="card box"><span class="pill">التوصية الأولى</span><h2>الدور الأرضي في منطقة غرف 7xxx</h2><p>أفضل توازن بين القرب من الألعاب والمسابح وبين الهدوء النسبي. اطلب غرفة عائلية مطلة على مسبح، في منتصف المبنى، وليست مواجهة مباشرة للزحاليق الكبيرة أو منصة العروض.</p><div class="rank"><strong>1</strong><div><b>منطقة O — غرف 7001 إلى 7076</b><br>الأفضل للعائلة والقرب المتوازن من الخدمات.</div></div><div class="rank"><strong>2</strong><div><b>منطقة N — غرف 6001 إلى 6053</b><br>أقرب لبعض الألعاب، لكنها أكثر حركة وضوضاء.</div></div></div><div class="card box"><h3>طلب جاهز للفندق</h3><div id="roomText" class="copybox">نرجو تخصيص غرفة عائلية في الدور الأرضي، مطلة على مسبح، ويفضل في منطقة O التي تضم الغرف 7001–7076 وفي منتصف المبنى، بحيث تكون قريبة من أكوا بارك الأطفال والمسابح والمطاعم والمرافق الرئيسية، ولكن ليست مواجهة مباشرة للزحاليق الكبيرة أو مناطق العروض لتجنب الضوضاء. وفي حال عدم التوفر، تكون الأولوية الثانية لمنطقة N التي تضم الغرف 6001–6053 في الدور الأرضي. كما نرجو أن تكون الغرف متجاورة إذا كان الحجز يشمل أكثر من غرفة.</div><button class="copy-btn" data-copy="roomText">نسخ طلب الغرفة</button></div></div></section>
 </main>
-<div id="sheet" class="sheet"><div class="sheet-card"><div class="sheet-head"><div><div id="sheetNumber" class="facility-num"></div><span id="sheetCat" class="pill"></span><h2 id="sheetTitle"></h2></div><button id="closeSheet" class="close" aria-label="إغلاق">×</button></div><p id="sheetDesc"></p><div class="rank"><strong>✓</strong><div><b>مناسبته للعائلة</b><br><span id="sheetFamily"></span></div></div><p><b>أوقات التشغيل:</b> <span id="sheetHours" class="hour"></span></p></div></div>
-<script src="data.js?v=10"></script><script src="app.js?v=10"></script>
+<div id="sheet" class="sheet"><div class="sheet-card"><div class="sheet-head"><div><div id="sheetNumber" class="facility-num"></div><span id="sheetCat" class="pill"></span><h2 id="sheetTitle"></h2></div><button id="closeSheet" class="close" aria-label="إغلاق">×</button></div><p id="sheetDesc"></p><div class="rank"><strong>✓</strong><div><b>معلومة إضافية</b><br><span id="sheetFamily"></span></div></div><p><b>التشغيل أو الحالة:</b> <span id="sheetHours" class="hour"></span></p></div></div>
+<script src="data.js?v=11"></script><script src="app.js?v=11"></script>
 <script>document.getElementById('mapImage').addEventListener('error',function(){document.getElementById('mapNotice').innerHTML='<b>تعذر تحميل ملف الصورة.</b> أعد فتح الصفحة.'});</script>
 </body></html>

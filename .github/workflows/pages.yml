@@ -30,7 +30,7 @@ jobs:
           sudo apt-get install -y poppler-utils
           python -m pip install --disable-pip-version-check pillow
           mkdir -p site
-          cp index.html site/index.html
+          cp index.html style.css data.js app.js site/
           curl -L --fail --retry 3 -o map.pdf "https://files.anextour.com/Content/uploads/elfinder/images/content-maps/Egypt/Maps/PickalbatrosWaterValley.pdf"
           pdftoppm -f 1 -l 1 -r 150 -png -singlefile map.pdf map-page
           python - <<'PY'

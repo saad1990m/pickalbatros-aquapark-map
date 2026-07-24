@@ -23,12 +23,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Build mobile map image
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install --disable-pip-version-check pillow
+          mkdir -p site
+          cp index.html site/index.html
+          curl -L --fail --retry 3 -o map.pdf "https://files.anextour.com/Content/uploads/elfinder/images/content-maps/Egypt/Maps/PickalbatrosWaterValley.pdf"
+          pdftoppm -f 1 -l 1 -r 150 -png -singlefile map.pdf map-page
+          python - <<'PY'
+          from PIL import Image
+          image = Image.open('map-page.png').convert('RGB').rotate(-90, expand=True)
+          image = image.crop((0, 0, image.width, int(image.height * 0.63)))
+          image.thumbnail((1800, 1800), Image.Resampling.LANCZOS)
+          image.save('site/map.webp', 'WEBP', quality=78, method=6)
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

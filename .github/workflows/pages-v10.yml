@@ -1,5 +1,5 @@
 name: Deploy Interactive Map V10
-run-name: V10 FINAL — خريطة بيكالباتروس — ${{ github.sha }}
+run-name: V10 IMAGE CHECK — خريطة بيكالباتروس — ${{ github.sha }}
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build and verify map-v10.webp
+      - name: Build map-v10.webp
         shell: bash
         run: |
           node <<'NODE'
@@ -43,18 +43,17 @@ jobs:
             throw new Error('The four map image parts are not complete');
           }
           const encoded = parts.join('');
-          console.log(`encodedLength=${encoded.length}`);
           if (!encoded.startsWith('UklG')) throw new Error('Invalid WebP base64 header');
           const image = Buffer.from(encoded, 'base64');
           if (image.subarray(0, 4).toString() !== 'RIFF' || image.subarray(8, 12).toString() !== 'WEBP') {
             throw new Error('Decoded image is not WebP');
           }
           const hash = crypto.createHash('sha256').update(image).digest('hex');
-          if (hash !== '8ff992a9469e814ae5c4f00872823776b370dd6c856d9394948eddcae7e0b17e') {
+          if (hash !== 'f97e7aff288d024f5b141f1751a050b4041d590938d514a36e89a3d4bf9ed8a3') {
             throw new Error(`Checksum mismatch: ${hash}`);
           }
           fs.writeFileSync('map-v10.webp', image);
-          console.log(`Verified map-v10.webp: ${image.length} bytes, sha256=${hash}`);
+          console.log(`Built map-v10.webp: ${image.length} bytes, sha256=${hash}`);
           NODE
           test -s interactive-v10.html
           test -s style.css

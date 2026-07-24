@@ -1,0 +1,70 @@
+name: Deploy Interactive Map V10
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-v10
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and verify map-v10.webp
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const vm = require('vm');
+          const crypto = require('crypto');
+          const context = { window: {} };
+          vm.createContext(context);
+          for (let i = 1; i <= 4; i++) {
+            vm.runInContext(fs.readFileSync(`map-v10-${i}.js`, 'utf8'), context);
+          }
+          const parts = context.window.MAPV10 || [];
+          if (parts.length !== 4) throw new Error(`Expected 4 parts, got ${parts.length}`);
+          const encoded = parts.join('');
+          if (!encoded.startsWith('UklG')) throw new Error('Invalid WebP base64 header');
+          const image = Buffer.from(encoded, 'base64');
+          if (image.subarray(0, 4).toString() !== 'RIFF' || image.subarray(8, 12).toString() !== 'WEBP') {
+            throw new Error('Decoded image is not WebP');
+          }
+          const hash = crypto.createHash('sha256').update(image).digest('hex');
+          if (hash !== '8ff992a9469e814ae5c4f00872823776b370dd6c856d9394948eddcae7e0b17e') {
+            throw new Error(`Checksum mismatch: ${hash}`);
+          }
+          fs.writeFileSync('map-v10.webp', image);
+          console.log(`Verified map-v10.webp: ${image.length} bytes, sha256=${hash}`);
+          NODE
+          test -s interactive-v10.html
+          test -s style.css
+          test -s data.js
+          test -s app.js
+          test -s map-v10.webp
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

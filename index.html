@@ -8,10 +8,10 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</title>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
-<header class="hero"><div><h1>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</h1><p>اضغط على أي رقم في الخريطة لتظهر معلومات المرفق مباشرة، دون البحث في القائمة.</p><p style="margin-top:6px;font-weight:800">الإصدار التفاعلي 4</p></div></header>
+<header class="hero"><div><h1>الخريطة التفاعلية العربية لمنتجع بيكالباتروس أكوا بارك</h1><p>اضغط على أي رقم في الخريطة لتظهر معلومات المرفق مباشرة، دون البحث في القائمة.</p><p style="margin-top:6px;font-weight:800">الإصدار التفاعلي 5</p></div></header>
 <div class="tabs-wrap"><nav class="tabs">
 <button class="tab active" data-view="mapView">الخريطة التفاعلية</button>
 <button class="tab" data-view="facilitiesView">دليل المرافق</button>
@@ -33,7 +33,11 @@
 <button class="tool" id="resetBtn">إعادة التوسيط</button>
 <div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" alt="خريطة عربية لمنتجع بيكالباتروس أكوا بارك شرم الشيخ"><div class="map-title"><b>منتجع بيكالباتروس أكوا بارك – نيفرلاند</b><span>شرم الشيخ</span></div></div></div>
+<div id="viewport" class="map-viewport">
+<div id="stage" class="map-stage">
+<img id="mapImage" alt="خريطة عربية لمنتجع بيكالباتروس أكوا بارك شرم الشيخ"><div class="map-title"><b>منتجع بيكالباتروس أكوا بارك – نيفرلاند</b><span>شرم الشيخ</span></div>
+</div>
+</div>
 </div>
 <aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اضغط على رقم في الخريطة</h2><p>مثال: عند الضغط على الرقم 22 ستظهر معلومات النادي الصحي وصالة الرياضة مباشرة.</p><div class="notice">يمكنك أيضًا فتح «دليل المرافق» والضغط على أي بطاقة؛ ستعود الخريطة تلقائيًا إلى مكان المرفق.</div></aside>
 </div>
@@ -43,15 +47,14 @@
 <section id="roomView" class="view"><div class="room"><div class="card box"><span class="pill">التوصية الأولى</span><h2>الدور الأرضي في منطقة غرف 7xxx</h2><p>أفضل توازن بين القرب من الألعاب والمسابح وبين الهدوء النسبي. اطلب غرفة عائلية مطلة على مسبح، في منتصف المبنى، وليست مواجهة مباشرة للزحاليق الكبيرة أو منصة العروض.</p><div class="rank"><strong>1</strong><div><b>منطقة غرف 7xxx</b><br>الأفضل للعائلة والقرب المتوازن من الخدمات.</div></div><div class="rank"><strong>2</strong><div><b>منطقة غرف 6xxx</b><br>أقرب لبعض الألعاب، لكنها أكثر حركة وضوضاء.</div></div></div><div class="card box"><h3>طلب جاهز للفندق</h3><div id="roomText" class="copybox">نرجو تخصيص غرفة عائلية في الدور الأرضي، مطلة على مسبح، ويفضل في منطقة الغرف التي تبدأ بالرقم 7 وفي منتصف المبنى، بحيث تكون قريبة من أكوا بارك الأطفال والمسابح والمطاعم والمرافق الرئيسية، ولكن ليست مواجهة مباشرة للزحاليق الكبيرة أو مناطق العروض لتجنب الضوضاء. وفي حال عدم التوفر، تكون الأولوية الثانية لمنطقة الغرف التي تبدأ بالرقم 6 في الدور الأرضي. كما نرجو أن تكون الغرف متجاورة إذا كان الحجز يشمل أكثر من غرفة.</div><button class="copy-btn" data-copy="roomText">نسخ طلب الغرفة</button></div></div></section>
 </main>
 <div id="sheet" class="sheet"><div class="sheet-card"><div class="sheet-head"><div><div id="sheetNumber" class="facility-num"></div><span id="sheetCat" class="pill"></span><h2 id="sheetTitle"></h2></div><button id="closeSheet" class="close" aria-label="إغلاق">×</button></div><p id="sheetDesc"></p><div class="rank"><strong>✓</strong><div><b>مناسبته للعائلة</b><br><span id="sheetFamily"></span></div></div><p><b>أوقات التشغيل:</b> <span id="sheetHours" class="hour"></span></p></div></div>
-<script src="data.js?v=4"></script><script src="app.js?v=4"></script>
+<script src="data.js?v=5"></script><script src="app.js?v=5"></script>
 <script>
 (function(){
   var img=document.getElementById('mapImage');
   var note=document.querySelector('#mapView .notice');
-  Promise.all([
-    fetch('map-1.txt?v=4',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('p1');return r.text();}),
-    fetch('map.txt?v=4',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('p2');return r.text();})
-  ]).then(function(parts){img.src='data:image/webp;base64,'+parts.join('').replace(/\s/g,'');})
+  fetch('map.txt?v=5',{cache:'no-store'})
+    .then(function(r){if(!r.ok)throw new Error('map');return r.text();})
+    .then(function(b){img.src='data:image/webp;base64,'+b.replace(/\s/g,'');})
     .catch(function(){if(note)note.innerHTML='<b>تعذر تحميل صورة الخريطة.</b> حدّث الصفحة مرة أخرى.';});
 })();
 </script>

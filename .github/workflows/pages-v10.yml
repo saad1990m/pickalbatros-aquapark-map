@@ -1,4 +1,5 @@
 name: Deploy Interactive Map V10
+run-name: V10 FINAL — خريطة بيكالباتروس — ${{ github.sha }}
 
 on:
   push:
@@ -37,8 +38,12 @@ jobs:
             vm.runInContext(fs.readFileSync(`map-v10-${i}.js`, 'utf8'), context);
           }
           const parts = context.window.MAPV10 || [];
-          if (parts.length !== 4) throw new Error(`Expected 4 parts, got ${parts.length}`);
+          console.log(`parts=${parts.length}; lengths=${parts.map(p => typeof p === 'string' ? p.length : 0).join(',')}`);
+          if (parts.length !== 4 || parts.some(p => typeof p !== 'string' || p.length === 0)) {
+            throw new Error('The four map image parts are not complete');
+          }
           const encoded = parts.join('');
+          console.log(`encodedLength=${encoded.length}`);
           if (!encoded.startsWith('UklG')) throw new Error('Invalid WebP base64 header');
           const image = Buffer.from(encoded, 'base64');
           if (image.subarray(0, 4).toString() !== 'RIFF' || image.subarray(8, 12).toString() !== 'WEBP') {

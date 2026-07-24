@@ -36,7 +36,7 @@ jobs:
           python - <<'PY'
           from PIL import Image
           image = Image.open('map-page.png').convert('RGB').rotate(-90, expand=True)
-          image = image.crop((0, 0, image.width, int(image.height * 0.63)))
+          image = image.crop((0, 0, image.width, int(image.height * 0.72)))
           image.thumbnail((1800, 1800), Image.Resampling.LANCZOS)
           image.save('site/map.webp', 'WEBP', quality=78, method=6)
           PY

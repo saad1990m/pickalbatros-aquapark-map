@@ -1,62 +1,10 @@
-name: Deploy GitHub Pages
+name: Legacy Pages Workflow — Disabled
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Validate embedded map image
-        shell: bash
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const vm = require('vm');
-          const crypto = require('crypto');
-          const context = { window: {} };
-          vm.createContext(context);
-          for (let i = 1; i <= 4; i++) {
-            vm.runInContext(fs.readFileSync(`map-part-${i}.js`, 'utf8'), context);
-          }
-          const parts = context.window.MAP_PARTS || [];
-          if (parts.length !== 4) throw new Error(`Expected 4 map parts, got ${parts.length}`);
-          const encoded = parts.join('');
-          if (encoded.length !== 17192 || !encoded.startsWith('UklG')) {
-            throw new Error(`Invalid map encoding: length=${encoded.length}`);
-          }
-          const image = Buffer.from(encoded, 'base64');
-          if (image.subarray(0, 4).toString() !== 'RIFF' || image.subarray(8, 12).toString() !== 'WEBP') {
-            throw new Error('Decoded map is not a valid WebP container');
-          }
-          const hash = crypto.createHash('sha256').update(image).digest('hex');
-          if (hash !== 'cbbcdb20f4ef117fcf4be045cbd3a618be3ca1996d698e24ff23902f4e9bde0b') {
-            throw new Error(`Map checksum mismatch: ${hash}`);
-          }
-          console.log(`Validated WebP map: ${image.length} bytes, sha256=${hash}`);
-          NODE
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo "Legacy workflow disabled. Use pages-v10.yml."

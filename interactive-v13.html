@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087d89">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>خرائط بيكالباتروس شرم الشيخ التفاعلية</title>
+<link rel="stylesheet" href="style-v13.css?v=13">
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><h1>خرائط بيكالباتروس شرم الشيخ</h1><p>اختر المنتجع، ثم اضغط على المرفق أو منطقة الغرف لعرض التفاصيل مباشرة.</p></div></header>
+<div class="switch-wrap"><div class="switcher">
+<button type="button" class="resort-btn active" data-resort="park"><span class="resort-icon">≋</span><span class="resort-copy"><b>أكوا بارك</b><small>الألعاب والغرف N–O</small></span></button>
+<button type="button" class="resort-btn" data-resort="blu"><span class="resort-icon">⌂</span><span class="resort-copy"><b>أكوا بلو</b><small>المسابح والمطاعم والفعاليات</small></span></button>
+</div></div>
+<div class="tabs-wrap"><nav class="tabs" aria-label="أقسام الموقع">
+<button type="button" class="tab active" data-view="mapView">الخريطة</button>
+<button type="button" class="tab" data-view="facilitiesView">دليل المرافق</button>
+<button type="button" class="tab" data-view="eventsView">الفعاليات والأوقات</button>
+<button type="button" class="tab" data-view="roomsView">مناطق الغرف</button>
+</nav></div>
+<main>
+<section id="mapView" class="view active">
+<div class="current-resort"><span>الخريطة الحالية</span><strong id="currentResortName">بيكالباتروس أكوا بارك</strong></div>
+<div class="stats">
+<div class="card stat"><b id="statPools">25</b><span>مسبحًا</span></div>
+<div class="card stat"><b id="statHeated">4</b><span>مسابح مدفأة</span></div>
+<div class="card stat"><b id="statRestaurants">7</b><span>مطاعم معلنة</span></div>
+<div class="card stat"><b id="statBars">8</b><span>بارات معلنة</span></div>
+</div>
+<div id="mapNotice" class="notice"><b>جميع الأزرار تعمل بالضغط المباشر.</b> اختر المنتجع ثم نوع العلامات.</div>
+<div class="map-layout">
+<div class="card map-card">
+<div class="map-toolbar">
+<button type="button" id="facilityModeBtn" class="tool active">أرقام المرافق</button>
+<button type="button" id="roomModeBtn" class="tool">حروف الغرف</button>
+<button type="button" id="areaPrimary" class="tool primary">الألعاب المائية</button>
+<button type="button" id="areaSecondary" class="tool">غرف أكوا بارك</button>
+<button type="button" id="areaFull" class="tool">الخريطة كاملة</button>
+<button type="button" id="zoomIn" class="tool">تكبير +</button>
+<button type="button" id="zoomOut" class="tool">تصغير −</button>
+<button type="button" id="resetMap" class="tool">إعادة التوسيط</button>
+<div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
+</div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=13" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
+</div>
+<aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اختر المنتجع والعلامات</h2><p>اضغط على أكوا بارك أو أكوا بلو، ثم على أي رقم أو حرف لعرض التفاصيل.</p></aside>
+</div>
+</section>
+<section id="facilitiesView" class="view">
+<div class="section-head"><h2>دليل المرافق</h2></div>
+<input id="search" class="search" type="search" placeholder="ابحث برقم المرفق أو اسمه...">
+<div id="filters" class="filters"></div>
+<div id="facilityGrid" class="grid"></div>
+</section>
+<section id="eventsView" class="view">
+<div class="section-head"><h2>الفعاليات وأوقات التشغيل</h2></div>
+<div class="notice">الأوقات المؤكدة موضحة باللون الأخضر، والبقية تتطلب تأكيدًا من الاستقبال.</div>
+<div id="eventGrid" class="events"></div>
+</section>
+<section id="roomsView" class="view">
+<div class="section-head"><h2>مناطق الغرف</h2></div>
+<div class="notice"><b id="roomRecommendation">المنطقة O — الغرف 7001–7076، ثم المنطقة N — الغرف 6001–6053.</b></div>
+<div id="roomGrid" class="room-grid"></div>
+</section>
+</main>
+<div id="sheet" class="sheet" aria-hidden="true"><div class="sheet-card">
+<div class="sheet-head"><div><div id="sheetNumber" class="facility-num"></div><span id="sheetCat" class="pill"></span><h2 id="sheetTitle"></h2></div><button id="closeSheet" type="button" class="close" aria-label="إغلاق">×</button></div>
+<p id="sheetDesc"></p>
+<div class="detail-row"><b>معلومة إضافية</b><span id="sheetFamily"></span></div>
+<div class="detail-row"><b>التشغيل أو الحالة</b><span id="sheetHours" class="hour"></span></div>
+</div></div>
+<script src="data.js?v=13"></script>
+<script src="app-v13.js?v=13"></script>
+</body>
+</html>

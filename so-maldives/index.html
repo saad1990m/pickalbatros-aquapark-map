@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#17363d">
+<meta name="description" content="خريطة عربية تفاعلية لمنتجع SO/ Maldives تشمل المرافق والمطاعم ومناطق الفلل.">
+<title>خريطة SO/ Maldives التفاعلية بالعربية</title>
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <div class="brand">
+      <div class="logo">SO/ MALDIVES</div>
+      <div>
+        <h1>الخريطة التفاعلية العربية للمنتجع</h1>
+        <p class="subtitle">اضغط على أي رقم لفتح معلوماته. يمكنك التكبير والتحريك والبحث باسم المرفق أو رقم الفيلا.</p>
+      </div>
+    </div>
+    <div class="status">نسخة محسنة للجوال · Ultra Luxury</div>
+  </header>
+
+  <nav class="controls" aria-label="أدوات الخريطة">
+    <div class="searchWrap">
+      <span class="searchIcon">⌕</span>
+      <input id="searchInput" type="search" inputmode="search" autocomplete="off" placeholder="ابحث: سبا، مطعم، نادي الأطفال، أو 205">
+      <div id="searchResults" class="searchResults"></div>
+    </div>
+    <button class="btn primary" id="directoryBtn">☰ دليل المواقع</button>
+    <button class="btn" id="labelsBtn">🏷️ <span class="hideMobile">إظهار الأسماء</span></button>
+    <button class="btn" id="infoBtn">ⓘ <span class="hideMobile">عن المنتجع</span></button>
+    <button class="btn accent" id="shareBtn">↗ مشاركة</button>
+  </nav>
+
+  <main class="content">
+    <section class="mapCard" id="mapCard">
+      <div class="mapViewport" id="viewport" aria-label="خريطة تفاعلية لمنتجع SO Maldives">
+        <div class="stage" id="stage">
+          <img id="mapImage" class="mapImage" alt="خريطة منتجع SO Maldives">
+          <div id="markerLayer" class="markerLayer"></div>
+        </div>
+        <div class="floatTools">
+          <button class="iconBtn" id="zoomInBtn" aria-label="تكبير">+</button>
+          <button class="iconBtn" id="zoomOutBtn" aria-label="تصغير">−</button>
+          <button class="iconBtn" id="resetBtn" aria-label="إعادة ضبط الخريطة">↺</button>
+          <button class="iconBtn" id="fullBtn" aria-label="ملء الشاشة">⛶</button>
+        </div>
+        <div class="mapHint" id="mapHint"><button id="hintClose" aria-label="إغلاق">×</button><b>طريقة الاستخدام</b><br>اضغط على رقم الموقع، أو اسحب الخريطة بإصبع واحد وكبّر بإصبعين.</div>
+        <div class="mapFooter">
+          <span class="chip">المطار جهة أعلى اليمين · الغروب جهة اليسار</span>
+          <span class="chip" id="zoomLabel">التكبير 100٪</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sideHead">
+        <h2>دليل المواقع</h2>
+        <p>اختيار أي موقع ينقلك إليه مباشرة ويفتح التفاصيل.</p>
+      </div>
+      <div class="sideList" id="sideList"></div>
+      <div class="legend">
+        <span><i style="background:var(--food)"></i>مطاعم</span>
+        <span><i style="background:var(--activity)"></i>أنشطة</span>
+        <span><i style="background:var(--wellness)"></i>عافية</span>
+        <span><i style="background:var(--villa)"></i>فلل</span>
+      </div>
+    </aside>
+  </main>
+
+  <div class="footer">الخريطة إرشادية لتسهيل معرفة مواقع المرافق داخل المنتجع. مواقع الفلل معروضة بحسب مجموعات الأرقام الواردة في مخطط المنتجع.</div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<section class="sheet detailsSheet" id="detailsSheet" aria-modal="true" role="dialog">
+  <div class="sheetHandle"></div>
+  <div class="sheetTop">
+    <div class="sheetTitle">
+      <div class="bigNum" id="detailNum"></div>
+      <div><h2 id="detailName"></h2><div class="en" id="detailEn"></div></div>
+    </div>
+    <button class="closeBtn" id="detailClose" aria-label="إغلاق">×</button>
+  </div>
+  <p class="desc" id="detailDesc"></p>
+  <div class="infoGrid">
+    <div class="infoBox"><b>الفئة</b><span id="detailCat"></span></div>
+    <div class="infoBox"><b>الموقع داخل المنتجع</b><span id="detailZone"></span></div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" id="focusBtn">إظهار الموقع على الخريطة</button>
+    <button class="btn" id="copyBtn">نسخ اسم الموقع</button>
+  </div>
+</section>
+
+<section class="sheet directorySheet" id="directorySheet" aria-modal="true" role="dialog">
+  <div class="sheetTop"><div><h2 id="directoryTitle">دليل المواقع</h2><div class="en">اختر المرفق أو منطقة الفلل</div></div><button class="closeBtn" id="directoryClose" aria-label="إغلاق">×</button></div>
+  <input class="directorySearch" id="directorySearch" type="search" placeholder="بحث داخل الدليل">
+  <div class="filters" id="filters"></div>
+  <div class="directoryList" id="directoryList"></div>
+</section>
+
+<section class="sheet directorySheet" id="infoSheet" aria-modal="true" role="dialog">
+  <div class="sheetTop"><div><h2>عن منتجع SO/ Maldives</h2><div class="en">معلومات مختصرة ومصادر رسمية</div></div><button class="closeBtn" id="infoClose" aria-label="إغلاق">×</button></div>
+  <div class="infoPanel">
+    <p>يقع المنتجع في بحيرة إمبودهو، ويبعد نحو 15 دقيقة بالقارب السريع من مطار فيلانا الدولي. يضم مجموعة من الفلل الشاطئية والمائية، إضافة إلى المطاعم ونادي الشاطئ والسبا والنادي الرياضي ونادي الأطفال والرياضات المائية.</p>
+    <h3>ما توضحه الخريطة</h3>
+    <ul>
+      <li>المواقع المرقمة من 1 إلى 10.</li>
+      <li>فلل الممر الأول: 101–127.</li>
+      <li>فلل الممر الثاني الشاطئية: 201–228.</li>
+      <li>فلل الممر الثالث المائية: 301–328.</li>
+    </ul>
+    <a class="sourceLink" href="https://so-hotels.com/ar/maldives/" target="_blank" rel="noopener">فتح الموقع الرسمي للمنتجع ↗</a>
+    <a class="sourceLink" href="https://so-hotels.com/ar/maldives/experiences/kids-club/" target="_blank" rel="noopener">نادي الأطفال ذا نست ↗</a>
+    <a class="sourceLink" href="https://so-hotels.com/en/maldives/restaurants-and-bars/" target="_blank" rel="noopener">المطاعم والبارات ↗</a>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js?v=2"></script>
+</body>
+</html>

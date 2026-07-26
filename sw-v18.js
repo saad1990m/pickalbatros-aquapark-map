@@ -1,0 +1,5 @@
+const CACHE='pickalbatros-v18';
+const ASSETS=['./','interactive-v13.html','style-v13.css','official-style-v15.css','map-v17.css','family-guide-v18.css','data.js','official-data-v15.js','family-data-v18.js','map-chunk-01.js','map-chunk-02.js','map-chunk-03.js','map-chunk-04.js','map-chunk-05.js','map-chunk-06.js','official-map-v17.js','app-v17.js','official-ui-v15.js','family-guide-v18.js','map-v10.webp'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(resp=>{const copy=resp.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return resp}).catch(()=>caches.match('interactive-v13.html'))))});

@@ -8,14 +8,15 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>خرائط ودليل بيكالباتروس شرم الشيخ</title>
-<link rel="stylesheet" href="style-v13.css?v=16">
-<link rel="stylesheet" href="official-style-v15.css?v=16">
+<link rel="stylesheet" href="style-v13.css?v=17">
+<link rel="stylesheet" href="official-style-v15.css?v=17">
+<link rel="stylesheet" href="map-v17.css?v=17">
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><h1>خرائط ودليل بيكالباتروس شرم الشيخ</h1><p>خريطة تفاعلية ومعلومات الإقامة الرسمية للعائلة.</p></div></header>
+<header class="hero"><div class="hero-inner"><h1>خرائط ودليل بيكالباتروس شرم الشيخ</h1><p>الخريطة الرسمية لأكوا بارك، وخريطة أكوا بلو والمجمع، مع معلومات الإقامة للعائلة.</p></div></header>
 <div class="switch-wrap"><div class="switcher">
-<button type="button" class="resort-btn active" data-resort="park"><span class="resort-icon">≋</span><span class="resort-copy"><b>أكوا بارك</b><small>الألعاب والمرافق</small></span></button>
-<button type="button" class="resort-btn" data-resort="blu"><span class="resort-icon">⌂</span><span class="resort-copy"><b>أكوا بلو</b><small>دخول كامل مشمول</small></span></button>
+<button type="button" class="resort-btn active" data-resort="park"><span class="resort-icon">≋</span><span class="resort-copy"><b>أكوا بارك</b><small>الخريطة الرسمية الجديدة</small></span></button>
+<button type="button" class="resort-btn" data-resort="blu"><span class="resort-icon">⌂</span><span class="resort-copy"><b>أكوا بلو</b><small>خريطة المجمع والمرافق</small></span></button>
 </div></div>
 <div class="tabs-wrap"><nav class="tabs" aria-label="أقسام الموقع">
 <button type="button" class="tab active" data-view="mapView">الخريطة</button>
@@ -26,7 +27,7 @@
 </nav></div>
 <main>
 <section id="mapView" class="view active">
-<div class="current-resort"><span>الخريطة الحالية</span><strong id="currentResortName">بيكالباتروس أكوا بارك</strong></div>
+<div class="current-resort"><span>الخريطة الحالية</span><strong id="currentResortName">بيكالباتروس أكوا بارك — الخريطة الرسمية</strong></div>
 <div class="stats">
 <div class="card stat"><b id="statPools">25</b><span>مسبحًا</span></div>
 <div class="card stat"><b id="statHeated">4</b><span>مسابح مدفأة شتاءً</span></div>
@@ -34,21 +35,21 @@
 <div class="card stat"><b>كامل</b><span>الدخول إلى أكوا بلو</span></div>
 </div>
 <span id="statRestaurants" hidden></span><span id="statBars" hidden></span>
-<div id="mapNotice" class="notice"><b>الخريطة تفاعلية.</b> اختر المنتجع ثم اضغط على أي رقم لعرض اسم المرفق ومعلوماته.</div>
+<div id="mapNotice" class="notice"><b>الخريطة الرسمية الجديدة لأكوا بارك.</b> اضغط مباشرة على أي رقم مطبوع في الخريطة لعرض اسم المرفق ومعلوماته.</div>
 <div class="map-layout">
 <div class="card map-card">
 <div class="map-toolbar">
 <button type="button" id="facilityModeBtn" class="tool active">أرقام المرافق</button>
-<button type="button" id="roomModeBtn" class="tool">حروف الغرف</button>
-<button type="button" id="areaPrimary" class="tool primary">الألعاب المائية</button>
-<button type="button" id="areaSecondary" class="tool">غرف أكوا بارك</button>
-<button type="button" id="areaFull" class="tool">الخريطة كاملة</button>
+<button type="button" id="roomModeBtn" class="tool">مناطق الغرف</button>
+<button type="button" id="areaPrimary" class="tool primary">الخريطة الرسمية</button>
+<button type="button" id="areaSecondary" class="tool">مناطق الغرف</button>
+<button type="button" id="areaFull" class="tool">المجمع كاملًا</button>
 <button type="button" id="zoomIn" class="tool">تكبير +</button>
 <button type="button" id="zoomOut" class="tool">تصغير −</button>
 <button type="button" id="resetMap" class="tool">إعادة التوسيط</button>
 <div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=16" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=17" alt="خريطة تفاعلية لبيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
 </div>
 <aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اضغط على أي رقم</h2><p>سيظهر اسم المرفق ووصفه ومدى مناسبته للعائلة وأوقات تشغيله.</p></aside>
 </div>
@@ -66,7 +67,7 @@
 </section>
 <section id="roomsView" class="view">
 <div class="section-head"><h2>مناطق الغرف</h2></div>
-<div class="notice"><b id="roomRecommendation">الطلب الأنسب: غرفتان متجاورتان بالدور الأرضي، قريبتان من مرافق الأطفال والمطاعم وبعيدتان عن الضوضاء. رمز المبنى النهائي يحتاج تأكيد الفندق.</b></div>
+<div class="notice"><b id="roomRecommendation">المباني الرسمية في أكوا بارك: A وB وC وD، إضافة إلى الأجنحة. اطلب غرفتين متجاورتين بالدور الأرضي، ويُحدد المبنى حسب التوفر.</b></div>
 <div id="roomGrid" class="room-grid"></div>
 </section>
 <section id="stayGuideView" class="view">
@@ -80,10 +81,16 @@
 <div class="detail-row"><b>معلومة إضافية</b><span id="sheetFamily"></span></div>
 <div class="detail-row"><b>التشغيل أو الحالة</b><span id="sheetHours" class="hour"></span></div>
 </div></div>
-<script src="data.js?v=16"></script>
-<script src="official-data-v15.js?v=16"></script>
-<script src="app-v13.js?v=16"></script>
-<script>window.addEventListener('load',function(){var b=document.querySelector('.resort-btn[data-resort="park"]');if(b)b.click();});</script>
-<script src="official-ui-v15.js?v=16"></script>
+<script src="data.js?v=17"></script>
+<script src="official-data-v15.js?v=17"></script>
+<script src="map-chunk-01.js?v=17"></script>
+<script src="map-chunk-02.js?v=17"></script>
+<script src="map-chunk-03.js?v=17"></script>
+<script src="map-chunk-04.js?v=17"></script>
+<script src="map-chunk-05.js?v=17"></script>
+<script src="map-chunk-06.js?v=17"></script>
+<script src="official-map-v17.js?v=17"></script>
+<script src="app-v17.js?v=17"></script>
+<script src="official-ui-v15.js?v=17"></script>
 </body>
 </html>

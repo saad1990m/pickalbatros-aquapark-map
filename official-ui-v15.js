@@ -4,7 +4,7 @@ const d=window.HOTEL_OFFICIAL;if(!d)return;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const rows=(items,fn)=>items.map(fn).join('');
-function card(title,body,cls=''){return '<article class="official-card '+cls+'"><h3>'+esc(title)+'</h3>'+body+'</article>'}
+function card(title,body,cls=''){return '<article class="official-card '+cls+'"><h3>'+esc(title)+'</h3>'+body+'</article>';}
 function renderGuide(){
  const root=$('#stayGuideContent');if(!root)return;
  const restaurantRows=rows(d.restaurants,x=>'<tr><td><b>'+esc(x.name)+'</b></td><td>'+esc(x.service)+'</td><td>'+esc(x.time)+'</td></tr>');
@@ -44,8 +44,9 @@ function renderOfficialEvents(){
  ];
  root.innerHTML=items.map(x=>'<article class="card event"><h3>'+esc(x[0])+'</h3><div class="time">'+esc(x[1])+'</div><span class="status '+(x[3]?'':'warn')+'">'+(x[3]?'مؤكد رسميًا':'يتغير يوميًا')+'</span><p>'+esc(x[2])+'</p></article>').join('');
 }
-function correctRoomNotice(){
- const el=$('#roomRecommendation');if(el)el.textContent='الطلب الأنسب حاليًا: غرفتان متجاورتان في الدور الأرضي، قريبتان من مرافق الأطفال والمطاعم وبعيدتان عن الضوضاء. رمز المبنى النهائي يحتاج تأكيد الفندق؛ لا نعتمد توصية N أو O باعتبارها مؤكدة.';
+function preserveOfficialRoomNotice(){
+ const el=$('#roomRecommendation');
+ if(el&&!el.textContent.includes('A وB وC وD'))el.textContent='المباني الرسمية في أكوا بارك: A وB وC وD، إضافة إلى الأجنحة. اطلب غرفتين متجاورتين بالدور الأرضي، ويُحدد المبنى حسب التوفر.';
 }
-window.addEventListener('load',()=>{renderGuide();renderOfficialEvents();correctRoomNotice();});
+window.addEventListener('load',()=>{renderGuide();renderOfficialEvents();preserveOfficialRoomNotice();});
 })();

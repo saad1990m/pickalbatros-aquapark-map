@@ -7,31 +7,32 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>خرائط بيكالباتروس شرم الشيخ التفاعلية</title>
-<link rel="stylesheet" href="style-v13.css?v=14">
+<title>خرائط ودليل بيكالباتروس شرم الشيخ</title>
+<link rel="stylesheet" href="style-v13.css?v=15">
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><h1>خرائط بيكالباتروس شرم الشيخ</h1><p>اختر المنتجع، ثم اضغط على المرفق أو منطقة الغرف لعرض التفاصيل مباشرة.</p></div></header>
+<header class="hero"><div class="hero-inner"><h1>خرائط ودليل بيكالباتروس شرم الشيخ</h1><p>خريطة تفاعلية ومعلومات الإقامة الرسمية للعائلة.</p></div></header>
 <div class="switch-wrap"><div class="switcher">
-<button type="button" class="resort-btn active" data-resort="park"><span class="resort-icon">≋</span><span class="resort-copy"><b>أكوا بارك</b><small>الألعاب والغرف N–O</small></span></button>
-<button type="button" class="resort-btn" data-resort="blu"><span class="resort-icon">⌂</span><span class="resort-copy"><b>أكوا بلو</b><small>المسابح والمطاعم والفعاليات</small></span></button>
+<button type="button" class="resort-btn active" data-resort="park"><span class="resort-icon">≋</span><span class="resort-copy"><b>أكوا بارك</b><small>الألعاب والمرافق</small></span></button>
+<button type="button" class="resort-btn" data-resort="blu"><span class="resort-icon">⌂</span><span class="resort-copy"><b>أكوا بلو</b><small>دخول كامل مشمول</small></span></button>
 </div></div>
 <div class="tabs-wrap"><nav class="tabs" aria-label="أقسام الموقع">
 <button type="button" class="tab active" data-view="mapView">الخريطة</button>
 <button type="button" class="tab" data-view="facilitiesView">دليل المرافق</button>
 <button type="button" class="tab" data-view="eventsView">الفعاليات والأوقات</button>
 <button type="button" class="tab" data-view="roomsView">مناطق الغرف</button>
+<button type="button" class="tab official-tab" data-view="stayGuideView">دليل الإقامة</button>
 </nav></div>
 <main>
 <section id="mapView" class="view active">
 <div class="current-resort"><span>الخريطة الحالية</span><strong id="currentResortName">بيكالباتروس أكوا بارك</strong></div>
 <div class="stats">
 <div class="card stat"><b id="statPools">25</b><span>مسبحًا</span></div>
-<div class="card stat"><b id="statHeated">4</b><span>مسابح مدفأة</span></div>
-<div class="card stat"><b id="statRestaurants">7</b><span>مطاعم معلنة</span></div>
-<div class="card stat"><b id="statBars">8</b><span>بارات معلنة</span></div>
+<div class="card stat"><b id="statHeated">4</b><span>مسابح مدفأة شتاءً</span></div>
+<div class="card stat"><b>10–18</b><span>عمل المسابح والأكوا بارك</span></div>
+<div class="card stat"><b>كامل</b><span>الدخول إلى أكوا بلو</span></div>
 </div>
-<div id="mapNotice" class="notice"><b>جميع الأزرار تعمل بالضغط المباشر.</b> اختر المنتجع ثم نوع العلامات.</div>
+<div id="mapNotice" class="notice"><b>المعلومات التشغيلية محدّثة من رد الفندق.</b> اختر المنتجع ثم اضغط على الرقم أو الحرف.</div>
 <div class="map-layout">
 <div class="card map-card">
 <div class="map-toolbar">
@@ -45,7 +46,7 @@
 <button type="button" id="resetMap" class="tool">إعادة التوسيط</button>
 <div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=14" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=15" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
 </div>
 <aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اختر المنتجع والعلامات</h2><p>اضغط على أكوا بارك أو أكوا بلو، ثم على أي رقم أو حرف لعرض التفاصيل.</p></aside>
 </div>
@@ -58,13 +59,17 @@
 </section>
 <section id="eventsView" class="view">
 <div class="section-head"><h2>الفعاليات وأوقات التشغيل</h2></div>
-<div class="notice">الأوقات المؤكدة موضحة باللون الأخضر، والبقية تتطلب تأكيدًا من الاستقبال.</div>
+<div class="notice"><b>المؤكد رسميًا ظاهر هنا.</b> البرنامج اليومي التفصيلي يتغير يوميًا ويظهر في تطبيق Pickalbatros Hotels والاستقبال ولوحة المسرح الصغير.</div>
 <div id="eventGrid" class="events"></div>
 </section>
 <section id="roomsView" class="view">
 <div class="section-head"><h2>مناطق الغرف</h2></div>
-<div class="notice"><b id="roomRecommendation">المنطقة O — الغرف 7001–7076، ثم المنطقة N — الغرف 6001–6053.</b></div>
+<div class="notice"><b id="roomRecommendation">الطلب الأنسب: غرفتان متجاورتان بالدور الأرضي، قريبتان من مرافق الأطفال والمطاعم وبعيدتان عن الضوضاء. رمز المبنى النهائي يحتاج تأكيد الفندق.</b></div>
 <div id="roomGrid" class="room-grid"></div>
+</section>
+<section id="stayGuideView" class="view">
+<div class="section-head"><div><h2>دليل الإقامة الشاملة</h2><p class="section-subtitle">المطاعم والوجبات والبارات والشاطئ والخدمات وفق رد الفندق والمرفق الرسمي لعام 2026.</p></div></div>
+<div id="stayGuideContent"></div>
 </section>
 </main>
 <div id="sheet" class="sheet" aria-hidden="true"><div class="sheet-card">
@@ -73,8 +78,10 @@
 <div class="detail-row"><b>معلومة إضافية</b><span id="sheetFamily"></span></div>
 <div class="detail-row"><b>التشغيل أو الحالة</b><span id="sheetHours" class="hour"></span></div>
 </div></div>
-<script src="data.js?v=14"></script>
-<script src="app-v13.js?v=14"></script>
+<script src="data.js?v=15"></script>
+<script src="official-data-v15.js?v=15"></script>
+<script src="app-v13.js?v=15"></script>
+<script src="official-ui-v15.js?v=15"></script>
 <script>window.addEventListener('load',function(){var b=document.querySelector('.resort-btn[data-resort="park"]');if(b)b.click();});</script>
 </body>
 </html>

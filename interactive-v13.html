@@ -8,8 +8,8 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>خرائط ودليل بيكالباتروس شرم الشيخ</title>
-<link rel="stylesheet" href="style-v13.css?v=15">
-<link rel="stylesheet" href="official-style-v15.css?v=15">
+<link rel="stylesheet" href="style-v13.css?v=16">
+<link rel="stylesheet" href="official-style-v15.css?v=16">
 </head>
 <body>
 <header class="hero"><div class="hero-inner"><h1>خرائط ودليل بيكالباتروس شرم الشيخ</h1><p>خريطة تفاعلية ومعلومات الإقامة الرسمية للعائلة.</p></div></header>
@@ -33,7 +33,8 @@
 <div class="card stat"><b>10–18</b><span>عمل المسابح والأكوا بارك</span></div>
 <div class="card stat"><b>كامل</b><span>الدخول إلى أكوا بلو</span></div>
 </div>
-<div id="mapNotice" class="notice"><b>المعلومات التشغيلية محدّثة من رد الفندق.</b> اختر المنتجع ثم اضغط على الرقم أو الحرف.</div>
+<span id="statRestaurants" hidden></span><span id="statBars" hidden></span>
+<div id="mapNotice" class="notice"><b>الخريطة تفاعلية.</b> اختر المنتجع ثم اضغط على أي رقم لعرض اسم المرفق ومعلوماته.</div>
 <div class="map-layout">
 <div class="card map-card">
 <div class="map-toolbar">
@@ -47,9 +48,9 @@
 <button type="button" id="resetMap" class="tool">إعادة التوسيط</button>
 <div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=15" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=16" alt="خريطة مجمع بيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
 </div>
-<aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اختر المنتجع والعلامات</h2><p>اضغط على أكوا بارك أو أكوا بلو، ثم على أي رقم أو حرف لعرض التفاصيل.</p></aside>
+<aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اضغط على أي رقم</h2><p>سيظهر اسم المرفق ووصفه ومدى مناسبته للعائلة وأوقات تشغيله.</p></aside>
 </div>
 </section>
 <section id="facilitiesView" class="view">
@@ -79,10 +80,10 @@
 <div class="detail-row"><b>معلومة إضافية</b><span id="sheetFamily"></span></div>
 <div class="detail-row"><b>التشغيل أو الحالة</b><span id="sheetHours" class="hour"></span></div>
 </div></div>
-<script src="data.js?v=15"></script>
-<script src="official-data-v15.js?v=15"></script>
-<script src="app-v13.js?v=15"></script>
-<script src="official-ui-v15.js?v=15"></script>
+<script src="data.js?v=16"></script>
+<script src="official-data-v15.js?v=16"></script>
+<script src="app-v13.js?v=16"></script>
 <script>window.addEventListener('load',function(){var b=document.querySelector('.resort-btn[data-resort="park"]');if(b)b.click();});</script>
+<script src="official-ui-v15.js?v=16"></script>
 </body>
 </html>

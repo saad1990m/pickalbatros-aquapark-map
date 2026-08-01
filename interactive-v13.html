@@ -10,11 +10,12 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>خرائط ودليل بيكالباتروس شرم الشيخ</title>
-<link rel="manifest" href="manifest-v18.webmanifest?v=18">
-<link rel="stylesheet" href="style-v13.css?v=18">
-<link rel="stylesheet" href="official-style-v15.css?v=18">
-<link rel="stylesheet" href="map-v17.css?v=18">
-<link rel="stylesheet" href="family-guide-v18.css?v=18">
+<link rel="manifest" href="manifest-v18.webmanifest?v=20">
+<link rel="stylesheet" href="style-v13.css?v=20">
+<link rel="stylesheet" href="official-style-v15.css?v=20">
+<link rel="stylesheet" href="map-v17.css?v=20">
+<link rel="stylesheet" href="family-guide-v18.css?v=20">
+<link rel="stylesheet" href="private-stay-v20.css?v=20">
 </head>
 <body>
 <header class="hero"><div class="hero-inner"><h1>خرائط ودليل بيكالباتروس شرم الشيخ</h1><p>الخريطة الرسمية لأكوا بارك، وخريطة أكوا بلو، ودليل يومي مخصص للعائلة.</p></div></header>
@@ -32,8 +33,10 @@
 </nav></div>
 <main>
 <section id="nowView" class="view">
-<div class="section-head"><div><h2>ماذا يعمل الآن؟</h2><p class="section-subtitle">حسب توقيت شرم الشيخ والمواعيد الرسمية المرتبطة بحجزك.</p></div></div>
+<div class="section-head"><div><h2>ماذا يعمل الآن؟</h2><p class="section-subtitle">حسب توقيت شرم الشيخ وورقة الفندق المسلّمة عند تسجيل الدخول.</p></div></div>
 <div id="nowContent"></div>
+<div class="section-head"><h2>بيانات إقامتي</h2></div>
+<div id="privateStayContent"></div>
 <div class="section-head"><h2>مناسب لأطفالي؟</h2></div>
 <div id="kidsFitContent"></div>
 <div class="section-head"><h2>مخطط الوجبات اليومي</h2></div>
@@ -42,7 +45,7 @@
 <div id="reservationPlanner"></div>
 <div class="section-head"><h2>المصادر والاختلافات</h2></div>
 <div id="sourceComparison"></div>
-<div class="offline-note"><b>الاستخدام دون إنترنت:</b> بعد فتح الرابط مرة واحدة واتمام تحميله، ستبقى الخريطة والمواعيد الأساسية متاحة عند ضعف الاتصال. ويمكن إضافته إلى الشاشة الرئيسية من قائمة المشاركة في سفاري.</div>
+<div class="offline-note"><b>الاستخدام دون إنترنت:</b> بعد فتح الرابط مرة واحدة وإتمام تحميله، ستبقى الخريطة والمواعيد الأساسية متاحة عند ضعف الاتصال. ويمكن إضافته إلى الشاشة الرئيسية من قائمة المشاركة في سفاري.</div>
 </section>
 <section id="mapView" class="view active">
 <div class="current-resort"><span>الخريطة الحالية</span><strong id="currentResortName">بيكالباتروس أكوا بارك — الخريطة الرسمية</strong></div>
@@ -67,7 +70,7 @@
 <button type="button" id="resetMap" class="tool">إعادة التوسيط</button>
 <div id="zoomInfo" class="zoom-info">التكبير: 100٪</div>
 </div>
-<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=18" alt="خريطة تفاعلية لبيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
+<div id="viewport" class="map-viewport"><div id="stage" class="map-stage"><img id="mapImage" src="map-v10.webp?v=20" alt="خريطة تفاعلية لبيكالباتروس أكوا بارك وأكوا بلو في شرم الشيخ"></div></div>
 </div>
 <aside id="detail" class="card detail"><span class="pill">طريقة الاستخدام</span><h2>اضغط على أي رقم</h2><p>سيظهر اسم المرفق ووصفه ومدى مناسبته للعائلة وأوقات تشغيله.</p></aside>
 </div>
@@ -85,11 +88,12 @@
 </section>
 <section id="roomsView" class="view">
 <div class="section-head"><h2>مناطق الغرف</h2></div>
-<div class="notice"><b id="roomRecommendation">المباني الرسمية في أكوا بارك: A وB وC وD، إضافة إلى الأجنحة. اطلب غرفتين متجاورتين بالدور الأرضي، ويُحدد المبنى حسب التوفر.</b></div>
+<div class="notice"><b id="roomRecommendation">المباني الرسمية والحالية في أكوا بارك هي A وB وC وD. تم تخصيص غرفتين متجاورتين ضمن المبنى D عند تسجيل الدخول، وأرقام الغرف محفوظة على جهازك فقط.</b></div>
+<div id="privateRoomsContent"></div>
 <div id="roomGrid" class="room-grid"></div>
 </section>
 <section id="stayGuideView" class="view">
-<div class="section-head"><div><h2>دليل الإقامة الشاملة</h2><p class="section-subtitle">المطاعم والوجبات والبارات والشاطئ والخدمات وفق رد الفندق والمرفق الرسمي لعام 2026.</p></div></div>
+<div class="section-head"><div><h2>دليل الإقامة الشاملة</h2><p class="section-subtitle">المطاعم والوجبات والبارات والشاطئ والخدمات وفق ورقة الفندق المسلّمة عند تسجيل الدخول بتاريخ 1 أغسطس 2026.</p></div></div>
 <div id="stayGuideContent"></div>
 </section>
 </main>
@@ -99,18 +103,19 @@
 <div class="detail-row"><b>معلومة إضافية</b><span id="sheetFamily"></span></div>
 <div class="detail-row"><b>التشغيل أو الحالة</b><span id="sheetHours" class="hour"></span></div>
 </div></div>
-<script src="data.js?v=18"></script>
-<script src="official-data-v15.js?v=18"></script>
-<script src="family-data-v18.js?v=18"></script>
-<script src="map-chunk-01.js?v=18"></script>
-<script src="map-chunk-02.js?v=18"></script>
-<script src="map-chunk-03.js?v=18"></script>
-<script src="map-chunk-04.js?v=18"></script>
-<script src="map-chunk-05.js?v=18"></script>
-<script src="map-chunk-06.js?v=18"></script>
-<script src="official-map-v17.js?v=18"></script>
-<script src="app-v17.js?v=18"></script>
-<script src="official-ui-v15.js?v=18"></script>
-<script src="family-guide-v18.js?v=18"></script>
+<script src="data.js?v=20"></script>
+<script src="official-data-v15.js?v=20"></script>
+<script src="family-data-v18.js?v=20"></script>
+<script src="map-chunk-01.js?v=20"></script>
+<script src="map-chunk-02.js?v=20"></script>
+<script src="map-chunk-03.js?v=20"></script>
+<script src="map-chunk-04.js?v=20"></script>
+<script src="map-chunk-05.js?v=20"></script>
+<script src="map-chunk-06.js?v=20"></script>
+<script src="official-map-v17.js?v=20"></script>
+<script src="app-v17.js?v=20"></script>
+<script src="official-ui-v15.js?v=20"></script>
+<script src="family-guide-v18.js?v=20"></script>
+<script src="private-stay-v20.js?v=20"></script>
 </body>
 </html>
